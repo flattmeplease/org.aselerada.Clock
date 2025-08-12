@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Aselerada Clock
+Comment=A stylish console clock
+Exec=clock
+Terminal=true
+Type=Application
+Icon=org.aselerada.Clock
+Categories=Utility;
