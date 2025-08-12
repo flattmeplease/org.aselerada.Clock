@@ -4,17 +4,18 @@ runtime-version: '23.08'
 sdk: org.freedesktop.Sdk
 command: clock
 finish-args:
-  - --socket=x11 # Разрешаем доступ к X11-сокету для консольных приложений
-  - --socket=wayland # Разрешаем доступ к Wayland-сокету
-  - --device=all # Разрешаем доступ к устройствам
-  - --share=ipc # Разрешаем межпроцессное взаимодействие
+  - --socket=x11
+  - --socket=wayland
+  - --device=all
+  - --share=ipc
+  - --filesystem=host # Это разрешает доступ к твоей домашней папке, если нужно
+  - --own-name=org.aselerada.Clock # Уникальное имя для приложения
 
 modules:
   - name: clock
     builddir: true
     buildsystem: cmake-ninja
     sources:
-      - type: file
-        path: main.cpp # Путь к нашему исходному файлу
-      - type: file
-        path: CMakeLists.txt # Путь к файлу сборки CMake
+      - type: git
+        url: https://github.com/flattmeplease/org.aselerada.Clock.git # Замени на свой URL
+        branch: main
